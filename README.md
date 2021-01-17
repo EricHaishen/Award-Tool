@@ -1,5 +1,5 @@
 # Award-Tool
-This repo is about to bulid a award tool to get a random number
+This repo is about to bulid an award tool to get a random number
 ============================================
 本文件是参考B站打浦桥程序员粉丝抽奖小工具制作的，代码上略有改动
 下面是文件说明：
