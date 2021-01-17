@@ -1,28 +1,28 @@
 %% Award Tool
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% mÎÄ¼ş¹¦ÄÜ£º
-%    1¡¢°´Ò»ÏÂhai°´Å¥,Attendence set Êı×Ö¼ÓÒ»£¬Í¬Ê±Æä±³¾°ÔÚÂÌÉ«ºìÉ«¼äÇĞ»»£¬³õÊ¼±³¾°°×É«
-%       Í¬Ê±£¬Total Number Êı×ÖËæÖ®¸Ä±ä
-%    2¡¢ĞŞ¸ÄAttendence setµÄÊı×Ö£¬Total Number Êı×ÖËæÖ®¸Ä±ä
-%    3¡¢µã»÷Exit ÍË³ö
-%    4¡¢Ôö¼Ópic 
-%    5¡¢Ò¡¸Ë°´Å¥µÄµã»÷ÏÔÊ¾¹¦ÄÜ
-%    6¡¢Ëæ»úÊıÒÔ¼°³é½±½á¹ûµÄÏÔÊ¾£¬
-%       Ê¹ÓÃrandperm(n,1)º¯ÊıµÃµ½Ëæ»úÊı
-%    7¡¢TODO : ÊµÏÖËæ»úÊıÒÔ¼°³é½±½á¹ûµÄ¶¯Ì¬ÏÔÊ¾
-% Written by:Ericº£ 
+% mæ–‡ä»¶åŠŸèƒ½ï¼š
+%    1ã€æŒ‰ä¸€ä¸‹haiæŒ‰é’®,Attendence set æ•°å­—åŠ ä¸€ï¼ŒåŒæ—¶å…¶èƒŒæ™¯åœ¨ç»¿è‰²çº¢è‰²é—´åˆ‡æ¢ï¼Œåˆå§‹èƒŒæ™¯ç™½è‰²
+%       åŒæ—¶ï¼ŒTotal Number æ•°å­—éšä¹‹æ”¹å˜
+%    2ã€ä¿®æ”¹Attendence setçš„æ•°å­—ï¼ŒTotal Number æ•°å­—éšä¹‹æ”¹å˜
+%    3ã€ç‚¹å‡»Exit é€€å‡º
+%    4ã€å¢åŠ pic 
+%    5ã€æ‘‡æ†æŒ‰é’®çš„ç‚¹å‡»æ˜¾ç¤ºåŠŸèƒ½
+%    6ã€éšæœºæ•°ä»¥åŠæŠ½å¥–ç»“æœçš„æ˜¾ç¤ºï¼Œ
+%       ä½¿ç”¨randperm(n,1)å‡½æ•°å¾—åˆ°éšæœºæ•°
+%    7ã€TODO : å®ç°éšæœºæ•°ä»¥åŠæŠ½å¥–ç»“æœçš„åŠ¨æ€æ˜¾ç¤º
+% Written by:Ericæµ· 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function HAO 
     close all 
-    h = 300;%´°¿Ú¸ß¶È 
-    w = 500;%´°¿Ú¿í¶È 
-    %d_h =30;%´°¿ÚÉÏÃæĞ¡¸ß¶È 
-    pos = get(0, 'screensize');% »ñÈ¡ÏÔÊ¾Æ÷ÆÁÄ»³ß´ç£¬¡¾1 1 1536 864¡¿ ×îºóÁ½Ïî·Ö±ğÊÇÆÁÄ»¿í¶ÈºÍ¸ß¶È
-    left_start = (pos(3)-w)/2; % ¼ÆËã×ó±ßÆğÊ¼±ß½ç
-    down_start = (pos(4)-h)/2; % ¼ÆËãµ×²¿ÆğÊ¼±ß½ç
+    h = 300;%çª—å£é«˜åº¦ 
+    w = 500;%çª—å£å®½åº¦ 
+    %d_h =30;%çª—å£ä¸Šé¢å°é«˜åº¦ 
+    pos = get(0, 'screensize');% è·å–æ˜¾ç¤ºå™¨å±å¹•å°ºå¯¸ï¼Œã€1 1 1536 864ã€‘ æœ€åä¸¤é¡¹åˆ†åˆ«æ˜¯å±å¹•å®½åº¦å’Œé«˜åº¦
+    left_start = (pos(3)-w)/2; % è®¡ç®—å·¦è¾¹èµ·å§‹è¾¹ç•Œ
+    down_start = (pos(4)-h)/2; % è®¡ç®—åº•éƒ¨èµ·å§‹è¾¹ç•Œ
 
-    %% ¶¨Òå³öÏÖfigµÄÎ»ÖÃÎªÆÁÄ»ÖĞÑë£¬
-    %ÔÚ¿´ÁË¹«ÖÚºÅGUI60ÎÊµÚ20ÎÊÖ®ºóµÃµ½ÁíÒ»ÖÖ¼òµ¥µÄ¾ÓÖĞ·½·¨£¬¸ĞĞËÈ¤µÄÈ¥upÖ÷¹«ÖÚºÅ,ÕæµÄÊÇ±¦²Øup
+    %% å®šä¹‰å‡ºç°figçš„ä½ç½®ä¸ºå±å¹•ä¸­å¤®ï¼Œ
+    %åœ¨çœ‹äº†å…¬ä¼—å·GUI60é—®ç¬¬20é—®ä¹‹åå¾—åˆ°å¦ä¸€ç§ç®€å•çš„å±…ä¸­æ–¹æ³•ï¼Œæ„Ÿå…´è¶£çš„å»upä¸»å…¬ä¼—å·,çœŸçš„æ˜¯å®è—up
     global GUI 
     GUI.color_flag = 1;
     GUI.text_change_flag = 1;
@@ -34,7 +34,7 @@ function HAO
 
     %========add pic ========
     interfacePic = imread('pic.png');
-    %Ä¬ÈÏÇé¿öÏÂ£¬axesµÄÖµÎª»ùÓÚÍ¼µÄ¹éÒ»»¯Öµ£¬¿ÉÒÔdoc axes()²é¿´Ïà¹ØĞÅÏ¢£¬¿´ÊµÀı
+    %é»˜è®¤æƒ…å†µä¸‹ï¼Œaxesçš„å€¼ä¸ºåŸºäºå›¾çš„å½’ä¸€åŒ–å€¼ï¼Œå¯ä»¥doc axes()æŸ¥çœ‹ç›¸å…³ä¿¡æ¯ï¼Œçœ‹å®ä¾‹
     axes('parent',GUI.hai,'position',[+0.38,+0,0.6,1])
     imshow(interfacePic)
 
@@ -64,41 +64,41 @@ function HAO
         'position',[button_icon_left,button_icon_down,resize_w,resize_h],'callback',@CountStop,...
         'Cdata',awardIcon2,'visible','off');
 
-    %======== ¿Ø¼şÄÚÈİ ========
-    %¶¨Òå±êÌâ
-    %¶¨Òå±êÌâÎÄ±¾´óĞ¡
+    %======== æ§ä»¶å†…å®¹ ========
+    %å®šä¹‰æ ‡é¢˜
+    %å®šä¹‰æ ‡é¢˜æ–‡æœ¬å¤§å°
     button_title_w = 150;
     button_title_h = 30;
-    %¶¨ÒåÆğÊ¼Î»ÖÃ
+    %å®šä¹‰èµ·å§‹ä½ç½®
     button_title_left = left_start-380+40;
     button_title_down = down_start-70+50;
     GUI.title_hai=uicontrol('Parent',GUI.hai,'style','text','position',[button_title_left,button_title_down,button_title_w,button_title_h],...
         'string','HAI Award Tool ','fontsize',14,'fontweight','bold','horizontalAlignment','center');
 
-    %¶¨Òå°´Å¥´óĞ¡
+    %å®šä¹‰æŒ‰é’®å¤§å°
     button_w = 50;
     button_h = 30;
-    %¶¨ÒåÆğÊ¼Î»ÖÃ
+    %å®šä¹‰èµ·å§‹ä½ç½®
     button_left = left_start-380+20;
     button_down = down_start-70;
     GUI.button = uicontrol('Parent',GUI.hai,'Style','pushbutton','string','hai',...
         'position',[button_left button_down button_w button_h],'fontsize',12,'visible','on',...
         'callback',@changeEditFcn);
-    %¸ù¾İbutton°´Å¥À´ÉèÖÃtext1µÄÎ»ÖÃ£¬ÕâÑùµ÷ÕûbuttonÊ±£¬text»á¸ú×Åµ÷Õû
+    %æ ¹æ®buttonæŒ‰é’®æ¥è®¾ç½®text1çš„ä½ç½®ï¼Œè¿™æ ·è°ƒæ•´buttonæ—¶ï¼Œtextä¼šè·Ÿç€è°ƒæ•´
     text1_left = button_left-130;
     text1_down = button_down;
     GUI.text1 = uicontrol('Parent',GUI.hai,'Style','text','string','Mode Select:',...
         'position',[text1_left,text1_down,125,30],'fontsize',12,'foregroundcolor','black',...
         'fontweight','bold','horizontalAlignment','left');
 
-    %¸ù¾İbutton°´Å¥À´ÉèÖÃtext2µÄÎ»ÖÃ£¬ÕâÑùµ÷ÕûbuttonÊ±£¬text»á¸ú×Åµ÷Õû
+    %æ ¹æ®buttonæŒ‰é’®æ¥è®¾ç½®text2çš„ä½ç½®ï¼Œè¿™æ ·è°ƒæ•´buttonæ—¶ï¼Œtextä¼šè·Ÿç€è°ƒæ•´
     text_left = button_left-130;
     text_down = button_down-40;
     GUI.text2 = uicontrol('Parent',GUI.hai,'Style','text','string','Attendence set:',...
         'position',[text_left,text_down,125,30],'fontsize',12,'foregroundcolor','black',...
         'fontweight','bold','horizontalAlignment','left');
 
-    %¸ù¾İbutton°´Å¥À´ÉèÖÃtextµÄÎ»ÖÃ£¬ÕâÑùµ÷ÕûbuttonÊ±£¬text»á¸ú×Åµ÷Õû
+    %æ ¹æ®buttonæŒ‰é’®æ¥è®¾ç½®textçš„ä½ç½®ï¼Œè¿™æ ·è°ƒæ•´buttonæ—¶ï¼Œtextä¼šè·Ÿç€è°ƒæ•´
     text3_left = button_left-130;
     text3_down = text_down-40;
     GUI.text1 = uicontrol('Parent',GUI.hai,'Style','text','string','Total Number:',...
@@ -106,43 +106,43 @@ function HAO
         'fontweight','bold','horizontalAlignment','left');
 
 
-%     %ÉèÖÃÒ»¸ö×´Ì¬°´Å¥
+%     %è®¾ç½®ä¸€ä¸ªçŠ¶æ€æŒ‰é’®
 %     button_start_left = text3_left;
 %     button_start_down = text3_down-40;
 %     GUI.START = uicontrol('Parent',GUI.hai,'Style','pushbutton','string','state:0',...
 %         'position',[button_start_left,button_start_down,button_w+10,button_h],'fontsize',12,'foregroundcolor','black',...
 %         'fontweight','bold','horizontalAlignment','left','callback',@CountStrt);
 
-    %ÉèÖÃÒ»¸öÍ£Ö¹°´Å¥
+    %è®¾ç½®ä¸€ä¸ªåœæ­¢æŒ‰é’®
     button_stop_left = text3_left + 15 + button_w;
     button_stop_down = text3_down-40;
     GUI.STOP = uicontrol('Parent',GUI.hai,'Style','pushbutton','string','Press',...
         'position',[button_stop_left,button_stop_down,button_w+5,button_h],'fontsize',12,'foregroundcolor','black',...
         'fontweight','bold','horizontalAlignment','left','callback',@CountStop);
 
-    %ÉèÖÃÒ»¸öÍË³ö°´Å¥
+    %è®¾ç½®ä¸€ä¸ªé€€å‡ºæŒ‰é’®
     button_exit_left = button_stop_left + 15 + button_w;
     button_exit_down = text3_down-40;
     GUI.exit = uicontrol('Parent',GUI.hai,'Style','pushbutton','string','Exit',...
         'position',[button_exit_left,button_exit_down,button_w,button_h],'fontsize',12,'foregroundcolor','black',...
         'fontweight','bold','horizontalAlignment','left','callback',@haiExitFcn);
-    %ÉèÖÃeditµÄÎ»ÖÃ
-    edit_left = button_left;%×ó±ßÓëbutton¶ÔÆë
-    edit_down = text_down;%µ×±ßÓëtext¶ÔÆë
+    %è®¾ç½®editçš„ä½ç½®
+    edit_left = button_left;%å·¦è¾¹ä¸buttonå¯¹é½
+    edit_down = text_down;%åº•è¾¹ä¸textå¯¹é½
     edit_w = 50;
     edit_h = 30;
     GUI.edit = uicontrol('Parent',GUI.hai,'Style','edit','string','4',...
         'position',[edit_left,edit_down,edit_w,edit_h],'fontsize',12,'backgroundcolor','white',...
         'fontweight','bold','visible','on','callback',@fillinNumber);
 
-    %¸ù¾İbutton°´Å¥À´ÉèÖÃtextµÄÎ»ÖÃ£¬ÕâÑùµ÷ÕûbuttonÊ±£¬text»á¸ú×Åµ÷Õû
+    %æ ¹æ®buttonæŒ‰é’®æ¥è®¾ç½®textçš„ä½ç½®ï¼Œè¿™æ ·è°ƒæ•´buttonæ—¶ï¼Œtextä¼šè·Ÿç€è°ƒæ•´
     text4_left = button_left;
     text4_down = text_down-40;
     GUI.text4 = uicontrol('Parent',GUI.hai,'Style','pushbutton','string','4',...
         'position',[text4_left,text4_down,button_w,button_h],'fontsize',12,'foregroundcolor','black',...
         'fontweight','bold','horizontalAlignment','left');
 
-    %ÉèÖÃresultµÄÏÔÊ¾¿Ø¼ş
+    %è®¾ç½®resultçš„æ˜¾ç¤ºæ§ä»¶
     result_left = edit_left + 153;
     result_down = edit_down-20;
     result_w = 60;
@@ -154,7 +154,7 @@ end
 
 function changeEditFcn(~,~)
     global GUI
-    % ²âÊÔ¸Ä±ä±³¾°ÑÕÉ«
+    % æµ‹è¯•æ”¹å˜èƒŒæ™¯é¢œè‰²
     if(GUI.color_flag)
         set(GUI.edit,'backgroundcolor','green');
         GUI.color_flag=~GUI.color_flag;
@@ -176,7 +176,7 @@ function fillinNumber(~,~)
     set(GUI.text4,'string',str);
 end
 
-%×¢Òâ£¬Ğ´»Øµ÷º¯ÊıÊ±£¬²»¹ÜÓĞÃ»ÓĞÊäÈë²ÎÊı£¬Ò»¶¨ÒªĞ´³É function func_name(~,~)µÄĞÎÊ½
+%æ³¨æ„ï¼Œå†™å›è°ƒå‡½æ•°æ—¶ï¼Œä¸ç®¡æœ‰æ²¡æœ‰è¾“å…¥å‚æ•°ï¼Œä¸€å®šè¦å†™æˆ function func_name(~,~)çš„å½¢å¼
 function haiExitFcn(~,~)
     close
 end
@@ -186,7 +186,7 @@ function CountStrt(~,~)
    set(GUI.strt,'visible','off');
    set(GUI.stop,'visible','on');
    GUI.text_change_flag = 1;
-   %¼ÓÈë¹ö¶¯ÊıÖµÏÔÊ¾
+   %åŠ å…¥æ»šåŠ¨æ•°å€¼æ˜¾ç¤º
 end
 
 function CountStop(~,~)
@@ -201,21 +201,20 @@ function CountStop(~,~)
 %         GUI.text_change_flag = 1;
 %     end
     edit_val = get(GUI.edit,'string');
-    edit_val = str2double(edit_val);     % ×Ö·û×ª»»ÎªÊı×Ö
+    edit_val = str2double(edit_val);     % å­—ç¬¦è½¬æ¢ä¸ºæ•°å­—
     switch edit_val
         case 3
-            %todo,ÕâÀï¿ÉÒÔ¿¼ÂÇ¶ÁÈëÊäÈë¿òµÄÃû×Ö£¬½¨Á¢¶ÔÓ¦µÄ×Ö·û´®Êı×é£¬¸ù¾İÏÂÃæµÄËæ»úÊıÑ¡ÔñÄ³Ò»¸ö×Ö·û´®
-            num_res = randperm(edit_val,1);      % Ê¹ÓÃrandperm´Ó1µ½edit_valÖĞËæ»úÈ¡³öÒ»¸öÊı
+            %todo,è¿™é‡Œå¯ä»¥è€ƒè™‘è¯»å…¥è¾“å…¥æ¡†çš„åå­—ï¼Œå»ºç«‹å¯¹åº”çš„å­—ç¬¦ä¸²æ•°ç»„ï¼Œæ ¹æ®ä¸‹é¢çš„éšæœºæ•°é€‰æ‹©æŸä¸€ä¸ªå­—ç¬¦ä¸²
+            num_res = randperm(edit_val,1);      % ä½¿ç”¨randpermä»1åˆ°edit_valä¸­éšæœºå–å‡ºä¸€ä¸ªæ•°
             set(GUI.result,'string',num2str(num_res));
         case 4
-            GUI.lab_1412=["¹éº½";"ÉÙÀÚ";"ÊÀÇ¿";"Ğıº£"];
-            num_res = randperm(edit_val,1);      % Ê¹ÓÃrandperm´Ó1µ½edit_valÖĞËæ»úÈ¡³öÒ»¸öÊı
+            num_res = randperm(edit_val,1);      % ä½¿ç”¨randpermä»1åˆ°edit_valä¸­éšæœºå–å‡ºä¸€ä¸ªæ•°
             set(GUI.result,'string',GUI.lab_1412(num_res));  
         case 6
-            num_res = randperm(edit_val,1);      % Ê¹ÓÃrandperm´Ó1µ½edit_valÖĞËæ»úÈ¡³öÒ»¸öÊı
+            num_res = randperm(edit_val,1);      % ä½¿ç”¨randpermä»1åˆ°edit_valä¸­éšæœºå–å‡ºä¸€ä¸ªæ•°
             set(GUI.result,'string',num2str(num_res));
         otherwise
-            num_res = randperm(edit_val,1);      % Ê¹ÓÃrandperm´Ó1µ½edit_valÖĞËæ»úÈ¡³öÒ»¸öÊı
+            num_res = randperm(edit_val,1);      % ä½¿ç”¨randpermä»1åˆ°edit_valä¸­éšæœºå–å‡ºä¸€ä¸ªæ•°
             set(GUI.result,'string',num2str(num_res));
     end
 end
