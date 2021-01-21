@@ -204,7 +204,14 @@ function CountStop(~,~)
     edit_val = str2double(edit_val);     % 字符转换为数字
     switch edit_val
         case 3
-            %todo,这里可以考虑读入输入框的名字，建立对应的字符串数组，根据下面的随机数选择某一个字符串
+            %TODO,
+            %Here you can consider reading the name data from a input edit uicontril element ,
+            %throug a for or while loop ,repeating the "name reading" action 3 times,and then 
+            %create a string array includding 3 strings, by using the function--randperm(eidt_val,1) 
+            %to get a string of your string array, then use this string to set it as the string content  
+            %of GUI.result.
+            %这里可以考虑读入输入框的名字，建立对应的字符串数组，根据下面的随机数选择某一个字符串,将其设置为
+            %GUI.result的内容
             num_res = randperm(edit_val,1);      % 使用randperm从1到edit_val中随机取出一个数
             set(GUI.result,'string',num2str(num_res));
         case 4
